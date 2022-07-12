@@ -82,7 +82,7 @@ td {
 					<table class="table">		
 					<thead>
 					<tr>
-					<th>Staff Name2</th>
+					<th>Staff Name</th>
 					<th>Leave Type</th>
 					<th>Start Date</th>
 					<th>End Date</th>
