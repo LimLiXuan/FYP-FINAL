@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>FYP_HRM1june2022</groupId>
+  <artifactId>FYP_HRM1june2022</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>FYP-HR</name>
+        <url>http://maven.apache.org</url>
+
+  <build>
+    <finalName>FYP-HR</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
+    </resources>
+    <plugins>
+
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+        <configuration>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+      </plugin>
+
+        <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.7.6</version>
+                <configuration>
+                        <container>
+                                <containerId>tomcat8x</containerId>
+                                <type>embedded</type>
+                        </container>
+                </configuration>
+        </plugin>
+
+
+                <!-- Maven Plugin for Jetty -->
+                <plugin>
+                                <groupId>org.eclipse.jetty</groupId>
+                                <artifactId>jetty-maven-plugin</artifactId>
+                                <version>9.2.11.v20150529</version>
+                                <configuration>
+                                        <webApp>
+                                                <contextPath>/FYP-HR</contextPath>
+                                        </webApp>
+                                </configuration>
+                        </plugin>
+    </plugins>
+  </build>
+
+   <dependencies>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-servlet-api</artifactId>
+    <version>8.5.77</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+<dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>5.0.0</version>
+    <scope>provided</scope>
+</dependency>
+
+</dependencies>
+</project>
