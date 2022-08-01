@@ -1,11 +1,11 @@
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
 public class ViewPageTesting {
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\acer\\OneDrive\\Desktop\\ChromeDriver\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		// Login
 		driver.get("http://34.211.139.60:8081/FYP-HR/login.jsp");
@@ -35,7 +35,20 @@ public class ViewPageTesting {
 			System.out.println("Logout button works.");
 		else
 			System.out.println("Logout button does not work");
-
+		// Testing whether Request Leave Page is accessible.
+		//via direct link
+		driver.get("http://34.211.139.60:8081/FYP-HR/leave.jsp");
+		if (!driver.getTitle().equalsIgnoreCase("HTTP Status 500 – Internal Server Error"))
+			System.out.println("Request Leave Page is accessible via direct link");
+		else
+			System.out.println("Request Leave Page is inaccessible via direct link");
+		//via Leave Request List Page
+		driver.get("http://34.211.139.60:8081/FYP-HR/MyLeaveRequests");
+		driver.findElement(By.xpath("//*[contains(@href,'leave.jsp')]")).click();
+		if ((driver.getCurrentUrl().equalsIgnoreCase("http://34.211.139.60:8081/FYP-HR/leave.jsp")) && (!driver.getTitle().equalsIgnoreCase("HTTP Status 500 – Internal Server Error")))
+			System.out.println("Request Leave Page is accessible via Leave Request List Page");
+		else
+			System.out.println("Request Leave Page is inaccessible via Leave Request List Page");
 		driver.close();
 		
 	}
