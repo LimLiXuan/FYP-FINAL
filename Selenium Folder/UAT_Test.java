@@ -4,7 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class UAT_Test {
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\acer\\OneDrive\\Desktop\\ChromeDriver\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://34.211.139.60:8081/FYP-HR/login.jsp");
 		driver.manage().window().maximize();
